@@ -1,7 +1,13 @@
+import About from '@/Components/About';
 import Hero from '@/Components/Hero';
+import Services from '@/app/Components/Services'
 import React from 'react';
 export default function Home() {
   return (
-    <Hero></Hero>
+    <div>
+      <Hero></Hero>
+    <About></About>
+    <Services></Services>
+    </div>
   );
 }
