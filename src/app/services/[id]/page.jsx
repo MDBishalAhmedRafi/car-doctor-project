@@ -1,14 +1,11 @@
-import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
-import { ObjectId } from "mongodb";
 import Image from "next/image";
 import { FaDownload, FaTools, FaWrench, FaCarBattery, FaOilCan } from "react-icons/fa";
 import React from "react";
+import Link from "next/link";
 export default async function ServicesDetailsPage({ params }) {
-  const details = await params;
-  const serviceCollection = dbConnect(collectionNameObj.servicesCollection);
-  const data = await serviceCollection.findOne({
-    _id: new ObjectId(details.id),
-  });
+ const detail = await params;
+ const res = await fetch (`http://localhost:3000/api/service/${detail.id}`);
+ const data = await res.json()
   return (
                 <>
 <section className="px-4 py-6">
@@ -119,9 +116,9 @@ export default async function ServicesDetailsPage({ params }) {
             <p>Need Help? We’re Here To Help You</p>
             <div className="bg-white text-black p-4 rounded-md">
               <p className="text-sm">Car Doctor Special</p>
-              <p className="text-lg font-bold text-red-500">Save up to 40%</p>
+              <p className="text-lg font-bold text-orange-500">Save up to 40%</p>
             </div>
-            <button className="bg-red-500 cursor-pointer hover:bg-red-600 transition px-4 py-2 rounded text-white font-semibold">
+            <button className="bg-orange-500 cursor-pointer hover:bg-orange-600 transition px-4 py-2 rounded text-white font-semibold">
               Get A Quote
             </button>
           </div>
@@ -129,9 +126,11 @@ export default async function ServicesDetailsPage({ params }) {
           {/* Price and Checkout */}
           <div className="bg-gray-100 p-6 rounded-md text-center space-y-4">
             <h4 className="text-xl font-bold text-gray-800">Price $250.00</h4>
-            <button className="w-full bg-red-500 cursor-pointer hover:bg-red-600 text-white py-2 rounded font-semibold">
+            <Link href={`/checkout/${data._id}`}>
+            <button className="w-full bg-orange-500 cursor-pointer hover:bg-orange-600 text-white py-2 rounded font-semibold">
               Proceed Checkout
             </button>
+            </Link>
           </div>
         </div>
       </div>

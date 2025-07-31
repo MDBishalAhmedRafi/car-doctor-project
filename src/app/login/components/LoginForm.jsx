@@ -43,24 +43,24 @@ export default function LoginForm() {
           <span className="label-text  font-bold">Email</span>
         </div>
         <input
-          type="text"
-          name="email"
-          placeholder="Type here"
-          className="input input-bordered w-full"
-        />
+              type="email"
+              placeholder="Your email"
+              name="email"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
       </label>
       <label className="form-control w-full">
         <div className="label w-full">
           <span className="label-text font-bold">Password</span>
         </div>
         <input
-          type="password"
-          name="password"
-          placeholder="Type here"
-          className="input input-bordered w-full"
-        />
+              type="password"
+              placeholder="Your password"
+              name="password"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
       </label>
-      <button className="w-full h-12 bg-orange-500 text-white font-bold">
+      <button className="w-full mt-5 cursor-pointer h-12 bg-orange-500 text-white font-bold">
         Sign In
       </button>
       <p className="text-center">Or Sign In with</p>
