@@ -37,7 +37,7 @@ const CheckoutForm = ({ data }) => {
 
     console.log(bookingPayload);
     const res = await fetch(
-      "https://nextjs-car-doctor-kappa.vercel.app/api/service",
+      "http://localhost:3000/api/service",
       {
         method: "POST",
         body: JSON.stringify(bookingPayload),
