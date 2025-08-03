@@ -1,19 +1,25 @@
-"use client";
+// "use client";
 import MyAllBookingsTable from "@/Components/tables/MyBookingTable";
-import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
-export default function MyBookingPage() {
-  const [data, setData] = useState([]);
-  const session = useSession();
-  console.log(session);
-  useEffect(() => {
+import { headers } from "next/headers";
+// import React, { useEffect, useState } from "react";
+
     const fetchMyBookings = async () => {
-      const res = await fetch("http://localhost:3000/api/service");
+      const res = await fetch("http://localhost:3000/api/service", { 
+        headers: await headers()
+      });
       const datas = await res.json();
-      setData(datas);
+      // setData(datas);
+      return datas;
     };
-    fetchMyBookings();
-  }, []);
+export default async function MyBookingPage() {
+  const data = await fetchMyBookings();
+  // const [data, setData] = useState([]);
+  // const session = useSession();
+  // console.log(session);
+  // useEffect(() => {
+
+  //   fetchMyBookings();
+  // }, []);
   console.log(data)
   return (
     <div>

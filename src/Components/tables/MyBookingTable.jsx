@@ -1,4 +1,5 @@
 // import DeleteBookingButton from "@/app/my-bookings/components/DeleteBookingButton";
+import DeleteBookingButton from "@/app/my-bookings/components/DeleteBookingButton";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";
@@ -40,13 +41,13 @@ const MyAllBookingsTable = ({ data }) => {
                   <td>{item.address}</td>
                   <td>
                     <Link href={`/my-bookings/${item._id}`}>
-                      <FaRegEdit className="h-8 w-8 font-bold" />
+                      <FaRegEdit className="h-8 w-8 font-bold cursor-pointer" />
                     </Link>
                   </td>
 
-                  {/* <td>
+                  <td>
                     <DeleteBookingButton id={item._id} />
-                  </td> */}
+                  </td>
                 </tr>
               );
             })}

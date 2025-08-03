@@ -125,7 +125,7 @@ export default async function ServicesDetailsPage({ params }) {
 
           {/* Price and Checkout */}
           <div className="bg-gray-100 p-6 rounded-md text-center space-y-4">
-            <h4 className="text-xl font-bold text-gray-800">Price $250.00</h4>
+            <h4 className="text-xl font-bold text-gray-800">Price : {data.price}</h4>
             <Link href={`/checkout/${data._id}`}>
             <button className="w-full bg-orange-500 cursor-pointer hover:bg-orange-600 text-white py-2 rounded font-semibold">
               Proceed Checkout
